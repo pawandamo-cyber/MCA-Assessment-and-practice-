@@ -1,0 +1,81 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOEZ//xdMKbuxA3Krc6Ksca",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/Text%20Preprocessing\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import string\n",
+        "\n",
+        "# Given text\n",
+        "text = \"Hello! My name is Alice. I'm learning NLP, and it's awesome!\"\n",
+        "\n",
+        "# Step 1: Remove all punctuation\n",
+        "cleaned_text = text.translate(str.maketrans(\"\", \"\", string.punctuation))\n",
+        "\n",
+        "# Step 2: Convert all text to lowercase\n",
+        "cleaned_text = cleaned_text.lower()\n",
+        "\n",
+        "# Step 3: Display the cleaned text\n",
+        "print(\"Original Text:\")\n",
+        "print(text)\n",
+        "\n",
+        "print(\"\\nCleaned Text:\")\n",
+        "print(cleaned_text)\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"Punctuation marks are removed to reduce unnecessary characters.\")\n",
+        "print(\"Converting text to lowercase makes words consistent regardless of capitalization.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pFiLZC_XFaBn",
+        "outputId": "4713fe84-b633-442d-c212-7fb3abce65e3"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original Text:\n",
+            "Hello! My name is Alice. I'm learning NLP, and it's awesome!\n",
+            "\n",
+            "Cleaned Text:\n",
+            "hello my name is alice im learning nlp and its awesome\n",
+            "\n",
+            "Explanation:\n",
+            "Punctuation marks are removed to reduce unnecessary characters.\n",
+            "Converting text to lowercase makes words consistent regardless of capitalization.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
