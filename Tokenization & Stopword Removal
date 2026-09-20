@@ -1,0 +1,120 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNHM9iZYyLRoJsqpBS34OiC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/Tokenization%20%26%20Stopword%20Removal\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "from nltk.tokenize import word_tokenize\n",
+        "from nltk.corpus import stopwords\n",
+        "\n",
+        "# Download required NLTK data\n",
+        "nltk.download(\"punkt\")\n",
+        "nltk.download(\"punkt_tab\")\n",
+        "nltk.download(\"stopwords\")\n",
+        "\n",
+        "# Given sentence\n",
+        "sentence = \"Natural Language Processing is a field of Artificial Intelligence.\"\n",
+        "\n",
+        "# Step 1: Tokenize the sentence\n",
+        "tokens = word_tokenize(sentence)\n",
+        "\n",
+        "# Step 2: Get English stopwords\n",
+        "stop_words = set(stopwords.words(\"english\"))\n",
+        "\n",
+        "# Step 3: Remove stopwords\n",
+        "filtered_tokens = [\n",
+        "    word for word in tokens\n",
+        "    if word.lower() not in stop_words and word.isalpha()\n",
+        "]\n",
+        "\n",
+        "# Display results\n",
+        "print(\"Original Sentence:\")\n",
+        "print(sentence)\n",
+        "\n",
+        "print(\"\\nAll Tokens:\")\n",
+        "print(tokens)\n",
+        "\n",
+        "print(\"\\nTokens after Stopword Removal:\")\n",
+        "print(filtered_tokens)\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"Stopwords are common words such as 'is', 'a', and 'of' that often\")\n",
+        "print(\"provide limited information for many NLP tasks.\")\n",
+        "print(\"Removing them can reduce the number of words that need to be processed.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pFiLZC_XFaBn",
+        "outputId": "8f8a3e7e-0a03-485f-dcbe-e44fbbc9a709"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt is already up-to-date!\n",
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt_tab is already up-to-date!\n",
+            "[nltk_data] Downloading package stopwords to /root/nltk_data...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original Sentence:\n",
+            "Natural Language Processing is a field of Artificial Intelligence.\n",
+            "\n",
+            "All Tokens:\n",
+            "['Natural', 'Language', 'Processing', 'is', 'a', 'field', 'of', 'Artificial', 'Intelligence', '.']\n",
+            "\n",
+            "Tokens after Stopword Removal:\n",
+            "['Natural', 'Language', 'Processing', 'field', 'Artificial', 'Intelligence']\n",
+            "\n",
+            "Explanation:\n",
+            "Stopwords are common words such as 'is', 'a', and 'of' that often\n",
+            "provide limited information for many NLP tasks.\n",
+            "Removing them can reduce the number of words that need to be processed.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data]   Unzipping corpora/stopwords.zip.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
