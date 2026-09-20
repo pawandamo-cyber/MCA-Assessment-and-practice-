@@ -1,0 +1,127 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMv0wONtT61dxNZjr6P0Z6e",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/I%20am%20learning%20Natural%20Language%20Processing%20and%20it%20is%20fun!\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import spacy\n",
+        "\n",
+        "# Download and load the English SpaCy model\n",
+        "!python -m spacy download en_core_web_sm\n",
+        "\n",
+        "nlp = spacy.load(\"en_core_web_sm\")\n",
+        "\n",
+        "# Given sentence\n",
+        "text = \"I am learning Natural Language Processing and it is fun!\"\n",
+        "\n",
+        "# Step 1: Convert to lowercase\n",
+        "text_lower = text.lower()\n",
+        "\n",
+        "# Process the text\n",
+        "doc = nlp(text_lower)\n",
+        "\n",
+        "# Step 2 & 3: Remove stopwords and lemmatize\n",
+        "final_words = []\n",
+        "\n",
+        "for token in doc:\n",
+        "    if not token.is_stop and not token.is_punct:\n",
+        "        final_words.append(token.lemma_)\n",
+        "\n",
+        "# Display results\n",
+        "print(\"=\" * 60)\n",
+        "print(\"TEXT PREPROCESSING\")\n",
+        "print(\"=\" * 60)\n",
+        "\n",
+        "print(\"\\nOriginal Sentence:\")\n",
+        "print(text)\n",
+        "\n",
+        "print(\"\\nLowercase Sentence:\")\n",
+        "print(text_lower)\n",
+        "\n",
+        "print(\"\\nFinal Preprocessed Sentence:\")\n",
+        "print(\" \".join(final_words))\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"1. Lowercasing makes the text consistent.\")\n",
+        "print(\"2. Stopwords such as 'am', 'and', 'it', and 'is' are removed.\")\n",
+        "print(\"3. Lemmatization converts words to their base forms.\")\n",
+        "print(\"   Example: learning -> learn\")\n",
+        "print(\"\\nThese steps reduce unnecessary variations in text and make\")\n",
+        "print(\"the data easier for NLP algorithms to process.\")\n",
+        "print(\"=\" * 60)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "g4henUs8L8n-",
+        "outputId": "3ce13515-a53d-4606-86da-75e9b0585d9a"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting en-core-web-sm==3.8.0\n",
+            "  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.8/12.8 MB\u001b[0m \u001b[31m53.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h\u001b[38;5;2m✔ Download and installation successful\u001b[0m\n",
+            "You can now load the package via spacy.load('en_core_web_sm')\n",
+            "\u001b[38;5;3m⚠ Restart to reload dependencies\u001b[0m\n",
+            "If you are in a Jupyter or Colab notebook, you may need to restart Python in\n",
+            "order to load all the package's dependencies. You can do this by selecting the\n",
+            "'Restart kernel' or 'Restart runtime' option.\n",
+            "============================================================\n",
+            "TEXT PREPROCESSING\n",
+            "============================================================\n",
+            "\n",
+            "Original Sentence:\n",
+            "I am learning Natural Language Processing and it is fun!\n",
+            "\n",
+            "Lowercase Sentence:\n",
+            "i am learning natural language processing and it is fun!\n",
+            "\n",
+            "Final Preprocessed Sentence:\n",
+            "learn natural language processing fun\n",
+            "\n",
+            "Explanation:\n",
+            "1. Lowercasing makes the text consistent.\n",
+            "2. Stopwords such as 'am', 'and', 'it', and 'is' are removed.\n",
+            "3. Lemmatization converts words to their base forms.\n",
+            "   Example: learning -> learn\n",
+            "\n",
+            "These steps reduce unnecessary variations in text and make\n",
+            "the data easier for NLP algorithms to process.\n",
+            "============================================================\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
