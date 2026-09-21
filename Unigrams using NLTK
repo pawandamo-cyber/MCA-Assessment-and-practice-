@@ -1,0 +1,110 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPlZAjNldqYr8ZFw1+SdZIi",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/Unigrams%20using%20NLTK\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Install NLTK\n",
+        "!pip install -q nltk\n",
+        "\n",
+        "import nltk\n",
+        "from nltk.util import ngrams\n",
+        "\n",
+        "# Download tokenizer\n",
+        "nltk.download('punkt_tab')\n",
+        "\n",
+        "# Given sentence\n",
+        "sentence = \"I love natural language processing.\"\n",
+        "\n",
+        "# Tokenize the sentence\n",
+        "words = nltk.word_tokenize(sentence)\n",
+        "\n",
+        "# Generate unigrams\n",
+        "unigrams = list(ngrams(words, 1))\n",
+        "\n",
+        "print(\"Original Sentence:\")\n",
+        "print(sentence)\n",
+        "\n",
+        "print(\"\\nTokens:\")\n",
+        "print(words)\n",
+        "\n",
+        "print(\"\\nUnigrams:\")\n",
+        "for unigram in unigrams:\n",
+        "    print(unigram)\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"A unigram is a single word/token considered independently.\")\n",
+        "print(\"Unigrams are useful in language modeling because they help\")\n",
+        "print(\"analyze the frequency and distribution of individual words.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        },
+        "id": "g4henUs8L8n-",
+        "outputId": "4146eb0b-a115-4c7e-d2af-957429ffefb6"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original Sentence:\n",
+            "I love natural language processing.\n",
+            "\n",
+            "Tokens:\n",
+            "['I', 'love', 'natural', 'language', 'processing', '.']\n",
+            "\n",
+            "Unigrams:\n",
+            "('I',)\n",
+            "('love',)\n",
+            "('natural',)\n",
+            "('language',)\n",
+            "('processing',)\n",
+            "('.',)\n",
+            "\n",
+            "Explanation:\n",
+            "A unigram is a single word/token considered independently.\n",
+            "Unigrams are useful in language modeling because they help\n",
+            "analyze the frequency and distribution of individual words.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt_tab is already up-to-date!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
