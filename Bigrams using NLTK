@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMl1TIg1nwQray/2bVWgawW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/Bigrams%20using%20NLTK\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Install NLTK\n",
+        "!pip install -q nltk\n",
+        "\n",
+        "import nltk\n",
+        "from nltk.util import ngrams\n",
+        "\n",
+        "# Download tokenizer\n",
+        "nltk.download('punkt_tab')\n",
+        "\n",
+        "# Given sentence\n",
+        "sentence = \"Machine learning is transforming industries.\"\n",
+        "\n",
+        "# Tokenize the sentence\n",
+        "words = nltk.word_tokenize(sentence)\n",
+        "\n",
+        "# Generate bigrams\n",
+        "bigrams = list(ngrams(words, 2))\n",
+        "\n",
+        "print(\"Original Sentence:\")\n",
+        "print(sentence)\n",
+        "\n",
+        "print(\"\\nTokens:\")\n",
+        "print(words)\n",
+        "\n",
+        "print(\"\\nBigrams:\")\n",
+        "for bigram in bigrams:\n",
+        "    print(bigram)\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"A bigram consists of two consecutive words/tokens.\")\n",
+        "print(\"Bigrams are useful in language models because they capture\")\n",
+        "print(\"the relationship and context between neighboring words.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        },
+        "id": "g4henUs8L8n-",
+        "outputId": "9bd5b249-1089-4f4d-b667-52a6055d58f2"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original Sentence:\n",
+            "Machine learning is transforming industries.\n",
+            "\n",
+            "Tokens:\n",
+            "['Machine', 'learning', 'is', 'transforming', 'industries', '.']\n",
+            "\n",
+            "Bigrams:\n",
+            "('Machine', 'learning')\n",
+            "('learning', 'is')\n",
+            "('is', 'transforming')\n",
+            "('transforming', 'industries')\n",
+            "('industries', '.')\n",
+            "\n",
+            "Explanation:\n",
+            "A bigram consists of two consecutive words/tokens.\n",
+            "Bigrams are useful in language models because they capture\n",
+            "the relationship and context between neighboring words.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt_tab is already up-to-date!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
