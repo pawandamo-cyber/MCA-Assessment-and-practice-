@@ -1,0 +1,121 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN7JcwQ6hJ+T4afgbrzmC2U",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/TRIGRAM%20GENERATION%20USING%20NLTK\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Install NLTK\n",
+        "!pip install -q nltk\n",
+        "\n",
+        "import nltk\n",
+        "from nltk.util import ngrams\n",
+        "\n",
+        "# Download tokenizer\n",
+        "nltk.download('punkt_tab')\n",
+        "\n",
+        "# Given sentence\n",
+        "sentence = \"Deep learning is a subset of machine learning.\"\n",
+        "\n",
+        "# Tokenize the sentence\n",
+        "words = nltk.word_tokenize(sentence)\n",
+        "\n",
+        "# Generate trigrams\n",
+        "trigrams = list(ngrams(words, 3))\n",
+        "\n",
+        "print(\"=\" * 60)\n",
+        "print(\"TRIGRAM GENERATION USING NLTK\")\n",
+        "print(\"=\" * 60)\n",
+        "\n",
+        "print(\"\\nOriginal Sentence:\")\n",
+        "print(sentence)\n",
+        "\n",
+        "print(\"\\nTokens:\")\n",
+        "print(words)\n",
+        "\n",
+        "print(\"\\nTrigrams:\")\n",
+        "for trigram in trigrams:\n",
+        "    print(trigram)\n",
+        "\n",
+        "print(\"\\nExplanation:\")\n",
+        "print(\"A trigram consists of three consecutive words or tokens.\")\n",
+        "print(\"Trigrams help language models understand the context of\")\n",
+        "print(\"three neighboring words and can be used to predict the\")\n",
+        "print(\"next word in a sequence.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        },
+        "id": "g4henUs8L8n-",
+        "outputId": "81c91cf2-19c2-41f3-e1dd-271b4ba64f2d"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "============================================================\n",
+            "TRIGRAM GENERATION USING NLTK\n",
+            "============================================================\n",
+            "\n",
+            "Original Sentence:\n",
+            "Deep learning is a subset of machine learning.\n",
+            "\n",
+            "Tokens:\n",
+            "['Deep', 'learning', 'is', 'a', 'subset', 'of', 'machine', 'learning', '.']\n",
+            "\n",
+            "Trigrams:\n",
+            "('Deep', 'learning', 'is')\n",
+            "('learning', 'is', 'a')\n",
+            "('is', 'a', 'subset')\n",
+            "('a', 'subset', 'of')\n",
+            "('subset', 'of', 'machine')\n",
+            "('of', 'machine', 'learning')\n",
+            "('machine', 'learning', '.')\n",
+            "\n",
+            "Explanation:\n",
+            "A trigram consists of three consecutive words or tokens.\n",
+            "Trigrams help language models understand the context of\n",
+            "three neighboring words and can be used to predict the\n",
+            "next word in a sequence.\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Package punkt_tab is already up-to-date!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
