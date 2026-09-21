@@ -1,0 +1,148 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNRFq83ZkTjIq9wgP/rEJZ+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/pawandamo-cyber/MCA-Assessment-and-practice-/blob/nlp-assessment/NLTK%20POS%20Tagging\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Install and import NLTK\n",
+        "!pip install -q nltk\n",
+        "\n",
+        "import nltk\n",
+        "\n",
+        "# Download required NLTK resources\n",
+        "nltk.download('punkt_tab')\n",
+        "nltk.download('averaged_perceptron_tagger_eng')\n",
+        "\n",
+        "# Given sentences\n",
+        "sentences = [\n",
+        "    \"I enjoy reading books on machine learning.\",\n",
+        "    \"The weather is sunny today.\"\n",
+        "]\n",
+        "\n",
+        "# POS tagging\n",
+        "for i, sentence in enumerate(sentences, 1):\n",
+        "    print(\"=\" * 60)\n",
+        "    print(f\"Sentence {i}: {sentence}\")\n",
+        "    print(\"=\" * 60)\n",
+        "\n",
+        "    words = nltk.word_tokenize(sentence)\n",
+        "    pos_tags = nltk.pos_tag(words)\n",
+        "\n",
+        "    print(\"\\nPOS Tags:\")\n",
+        "    for word, tag in pos_tags:\n",
+        "        print(f\"{word:15} -> {tag}\")\n",
+        "\n",
+        "print(\"\\nTag Significance:\")\n",
+        "print(\"NN   = Noun\")\n",
+        "print(\"NNS  = Plural noun\")\n",
+        "print(\"VB   = Base form of verb\")\n",
+        "print(\"VBP  = Verb, present tense\")\n",
+        "print(\"VBG  = Verb/Gerund\")\n",
+        "print(\"JJ   = Adjective\")\n",
+        "print(\"RB   = Adverb\")\n",
+        "print(\"DT   = Determiner\")\n",
+        "print(\"IN   = Preposition\")\n",
+        "print(\"PRP  = Personal pronoun\")\n",
+        "print(\"CC   = Conjunction\")\n",
+        "print(\"TO   = 'to'\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        },
+        "id": "g4henUs8L8n-",
+        "outputId": "f12507c2-87cc-4e2a-80c2-dca427d19197"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping tokenizers/punkt_tab.zip.\n",
+            "[nltk_data] Downloading package averaged_perceptron_tagger_eng to\n",
+            "[nltk_data]     /root/nltk_data...\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "============================================================\n",
+            "Sentence 1: I enjoy reading books on machine learning.\n",
+            "============================================================\n",
+            "\n",
+            "POS Tags:\n",
+            "I               -> PRP\n",
+            "enjoy           -> VBP\n",
+            "reading         -> VBG\n",
+            "books           -> NNS\n",
+            "on              -> IN\n",
+            "machine         -> NN\n",
+            "learning        -> NN\n",
+            ".               -> .\n",
+            "============================================================\n",
+            "Sentence 2: The weather is sunny today.\n",
+            "============================================================\n",
+            "\n",
+            "POS Tags:\n",
+            "The             -> DT\n",
+            "weather         -> NN\n",
+            "is              -> VBZ\n",
+            "sunny           -> JJ\n",
+            "today           -> NN\n",
+            ".               -> .\n",
+            "\n",
+            "Tag Significance:\n",
+            "NN   = Noun\n",
+            "NNS  = Plural noun\n",
+            "VB   = Base form of verb\n",
+            "VBP  = Verb, present tense\n",
+            "VBG  = Verb/Gerund\n",
+            "JJ   = Adjective\n",
+            "RB   = Adverb\n",
+            "DT   = Determiner\n",
+            "IN   = Preposition\n",
+            "PRP  = Personal pronoun\n",
+            "CC   = Conjunction\n",
+            "TO   = 'to'\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data]   Unzipping taggers/averaged_perceptron_tagger_eng.zip.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
